@@ -4,14 +4,8 @@ namespace StarterAssets
 {
     public class UICanvasControllerInput : MonoBehaviour
     {
-
         [Header("Output")]
         public StarterAssetsInputs starterAssetsInputs;
-
-        public void VirtualMoveInput(Vector2 virtualMoveDirection)
-        {
-            starterAssetsInputs.MoveInput(virtualMoveDirection);
-        }
 
         public void VirtualLookInput(Vector2 virtualLookDirection)
         {
@@ -23,11 +17,6 @@ namespace StarterAssets
             starterAssetsInputs.JumpInput(virtualJumpState);
         }
 
-        public void VirtualSprintInput(bool virtualSprintState)
-        {
-            starterAssetsInputs.SprintInput(virtualSprintState);
-        }
-        
+        // Eliminamos MoveInput() y SprintInput() porque ya no existen en StarterAssetsInputs
     }
-
 }

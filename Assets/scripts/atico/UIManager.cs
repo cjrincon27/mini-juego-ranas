@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour
 
     public void MostrarPanel(string nombre, string color, AudioClip audioNombre, AudioClip audioColor)
     {
-        // Posicionar el panel en la posici�n del mouse
         Vector2 mousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvasRectTransform,
@@ -40,15 +39,12 @@ public class UIManager : MonoBehaviour
             out mousePosition
         );
 
-        // Obtener tama�o del panel y del canvas
         Vector2 panelSize = panelRectTransform.rect.size;
         Vector2 canvasSize = canvasRectTransform.rect.size;
 
-        // Calcular los l�mites de movimiento
         float halfPanelWidth = panelSize.x / 2;
         float halfPanelHeight = panelSize.y / 2;
 
-        // Calcular posiciones l�mite
         Vector2 minPosition = new Vector2(
             -canvasSize.x / 2 + halfPanelWidth,
             -canvasSize.y / 2 + halfPanelHeight
@@ -58,7 +54,6 @@ public class UIManager : MonoBehaviour
             canvasSize.y / 2 - halfPanelHeight
         );
 
-        // Ajustar posici�n manteniendo el punto de clic lo m�s cerca posible
         Vector2 adjustedPosition = new Vector2(
             Mathf.Clamp(mousePosition.x, minPosition.x, maxPosition.x),
             Mathf.Clamp(mousePosition.y, minPosition.y, maxPosition.y)
@@ -70,7 +65,6 @@ public class UIManager : MonoBehaviour
         textoNombre.text = nombre;
         textoColor.text = color;
 
-        // Asigna los clips temporalmente para usarlos en m�todos sin par�metros
         clipNombre = audioNombre;
         clipColor = audioColor;
 
@@ -84,7 +78,6 @@ public class UIManager : MonoBehaviour
         botonGuardar.onClick.AddListener(() => GuardarInformacion(nombre, color));
     }
 
-    // Los dem�s m�todos permanecen igual
     private void ReproducirAudio(AudioClip clip)
     {
         if (clip != null)
@@ -106,7 +99,7 @@ public class UIManager : MonoBehaviour
 
     private void GuardarInformacion(string nombre, string color)
     {
-        DatosGlobales.GuardarDatos(nombre, color);
+        ActivationManager.Instance.ActivateItem(nombre);
         ReproducirAudio(clipNombre);
     }
 
