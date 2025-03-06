@@ -18,6 +18,9 @@ public class ItemManager : MonoBehaviour
         public bool mostrar; // 🔹 Nuevo booleano para controlar la visibilidad
     }
 
+    // Bool estático para controlar si los ítems ya han sido guardados
+    private static bool itemsCreados = false;
+
     private void Start()
     {
         Debug.Log("🔹 ItemManager Start: Intentando guardar ítems en el inventario...");
@@ -28,9 +31,18 @@ public class ItemManager : MonoBehaviour
             return;
         }
 
-        SaveItemsToInventory();
-        Debug.Log("✅ Todos los ítems han sido guardados en el inventario.");
-        
+        // Verifica si los ítems ya fueron creados
+        if (!itemsCreados)
+        {
+            SaveItemsToInventory();
+            itemsCreados = true; // Marca los ítems como creados
+            Debug.Log("✅ Todos los ítems han sido guardados en el inventario.");
+        }
+        else
+        {
+            Debug.Log("🔹 Los ítems ya han sido guardados previamente.");
+        }
+
         Destroy(gameObject); // 🔹 Se destruye después de guardar los ítems
     }
 

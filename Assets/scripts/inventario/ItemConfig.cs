@@ -33,13 +33,5 @@ public class ItemConfig : MonoBehaviour
             audioSource.clip = itemAudio;
         }
 
-        // 📝 Imprimir datos en consola para depuración
-        Debug.Log($"🔹 ID: {itemID}, " +
-                  $"🖼 Imagen: {(itemImage != null ? "✅" : "❌")}, " +
-                  $"🔊 Audio: {(itemAudio != null ? "✅" : "❌")}, " +
-                  $"⏳ Tiempo Carnada: {tiempoCarnada}, " +
-                  $"🐸 Tipo Rana Atrae: {tipoRanaAtrae}, " +
-                  $"📈 Porcentaje Aumento: {porcentajeAumento}%, " +
-                  $"👁 Mostrar: {mostrar}");
     }
 }

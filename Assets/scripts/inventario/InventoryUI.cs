@@ -9,7 +9,7 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        Invoke(nameof(DisplayInventory), 0.3f); // ⏳ Espera antes de ejecutar
+        Invoke(nameof(DisplayInventory), 0.2f); // ⏳ Espera antes de ejecutar
     }
 
     public void DisplayInventory()

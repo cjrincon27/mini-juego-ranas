@@ -99,7 +99,19 @@ public class UIManager : MonoBehaviour
 
     private void GuardarInformacion(string nombre, string color)
     {
-        ActivationManager.Instance.ActivateItem(nombre);
+        // Buscar el ítem en el inventario por su id (nombre)
+        ItemManager.ItemData item = InventoryManager.Instance.GetItemByID(nombre);
+        if (item != null)
+        {
+            item.mostrar = true;
+            Debug.Log($"Se activó el ítem: {nombre} (mostrar = true)");
+        }
+        else
+        {
+            Debug.LogWarning($"No se encontró el ítem con id: {nombre}");
+        }
+        
+        // Reproducir el audio correspondiente
         ReproducirAudio(clipNombre);
     }
 

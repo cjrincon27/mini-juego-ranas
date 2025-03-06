@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    // Instancia Singleton
     public static InventoryManager Instance;
 
+    // Lista para almacenar ítems
     private List<ItemManager.ItemData> storedItems = new List<ItemManager.ItemData>();
 
     private void Awake()
     {
+        // Asegurarse de que solo exista una instancia de InventoryManager
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // 🔹 Persiste entre escenas
-            Debug.Log("✅ InventoryManager creado y persistente entre escenas.");
         }
         else
         {
@@ -21,12 +23,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // Método para agregar un ítem al inventario
     public void AddItem(ItemManager.ItemData item)
     {
+        // Verificar si el ítem ya existe en el inventario
         if (!storedItems.Exists(i => i.itemID == item.itemID))
         {
             storedItems.Add(item);
-            Debug.Log($"📦 Ítem agregado al inventario: {item.itemID}");
         }
         else
         {
@@ -34,6 +37,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // Método para obtener la lista de ítems almacenados
     public List<ItemManager.ItemData> GetStoredItems()
     {
         if (storedItems.Count == 0)
@@ -45,5 +49,16 @@ public class InventoryManager : MonoBehaviour
             Debug.Log($"📋 Inventario cargado con {storedItems.Count} ítems.");
         }
         return storedItems;
+    }
+
+    // Método para buscar un ítem por su id (nombre)
+    public ItemManager.ItemData GetItemByID(string id)
+    {
+        ItemManager.ItemData foundItem = storedItems.Find(item => item.itemID == id);
+        if (foundItem == null)
+        {
+            Debug.LogWarning($"⚠ No se encontró el ítem con id: {id}");
+        }
+        return foundItem;
     }
 }
