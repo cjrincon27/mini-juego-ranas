@@ -20418,9 +20418,9 @@ MonoBehaviour:
     tipoRanaAtrae: 4
     porcentajeAumento: 4
     mostrar: 0
-  - itemID: vaso2
+  - itemID: Mesa
     itemImage: {fileID: 21300000, guid: 62b41e17d501e384d88cf4081733ab53, type: 3}
-    itemAudio: {fileID: 8300000, guid: ee101cee1f05cc141a9c50ead8df8b75, type: 3}
+    itemAudio: {fileID: 8300000, guid: 4f7cf1cb46621524a91c1871092bdebd, type: 3}
     tiempoCarnada: 4
     tipoRanaAtrae: 4
     porcentajeAumento: 4
