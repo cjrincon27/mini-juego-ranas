@@ -7,7 +7,8 @@ public class DragAndDropUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private CanvasGroup canvasGroup;
     private Canvas canvas;
     private Vector2 startPosition; // Posición inicial antes de arrastrar
-    private Transform originalParent; // Para evitar que se salga del Scroll View
+    private Transform originalParent; // Guarda el padre original
+    private bool enZonaDrop = false; // Indica si el objeto fue soltado en una zona válida
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class DragAndDropUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvasGroup.alpha = 0.6f;  // Hace el ítem semitransparente
         canvasGroup.blocksRaycasts = false;  // Evita que interfiera con otros elementos
         transform.SetParent(canvas.transform, true); // Lo saca del Scroll View para moverlo libremente
+        enZonaDrop = false; // Reinicia el estado
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -35,17 +37,21 @@ public class DragAndDropUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvasGroup.alpha = 1f;  // Restaura la opacidad
         canvasGroup.blocksRaycasts = true;  // Vuelve a detectar colisiones
 
-        if (!EstaEnZonaCorrecta())
+        if (!enZonaDrop)
         {
-            // Si no se suelta en la zona correcta, vuelve a su posición inicial
+            // Si no se soltó en una DropZone, vuelve a su posición inicial
             rectTransform.anchoredPosition = startPosition;
-            transform.SetParent(originalParent, true); // Regresa al `Content` del Scroll View
+            transform.SetParent(originalParent, true);
         }
     }
 
-    private bool EstaEnZonaCorrecta()
+    // Método para que DropZone indique si el objeto fue soltado en una zona válida
+    public void SetEnZonaDrop(bool estado, Transform newParent)
     {
-        // Aquí puedes programar una validación si el objeto está en una zona válida
-        return false; // Por defecto, regresa siempre a su posición
+        enZonaDrop = estado;
+        if (estado)
+        {
+            transform.SetParent(newParent, true); // Cambia el padre al DropZone
+        }
     }
 }
