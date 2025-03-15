@@ -6748,7 +6748,19 @@ MonoBehaviour:
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5165687250452755202}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: RefreshInventoryUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &530969198
 MonoBehaviour:
@@ -20383,7 +20395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsData:
-  - itemID: rana1
+  - itemID: rana
     itemImage: {fileID: 21300000, guid: 43f0e7c2fe029cb4f8074f9b0db1dfa5, type: 3}
     itemAudio: {fileID: 8300000, guid: 2ca692446df42cb4986786c778e40d30, type: 3}
     tiempoCarnada: 1
@@ -20396,7 +20408,7 @@ MonoBehaviour:
     tiempoCarnada: 2
     tipoRanaAtrae: 2
     porcentajeAumento: 2
-    mostrar: 0
+    mostrar: 1
   - itemID: caja
     itemImage: {fileID: 21300000, guid: d219982fc119bcc4db97df18470391c6, type: 3}
     itemAudio: {fileID: 8300000, guid: 8ae08b0f3698f9f4e9ea533475c8c0b4, type: 3}
@@ -20478,20 +20490,18 @@ MonoBehaviour:
     description: ranas  verdes
     completada: 0
     steps:
-    - isDrop: 1
-      stepText: cazar
     - isDrop: 0
+      stepText: cazar
+    - isDrop: 1
       stepText: rana
-    - isDrop: 1
-      stepText: verde
-    - isDrop: 1
+    - isDrop: 0
       stepText: verde
   - missionName: mision2
     description: ranas  rojas
     completada: 0
     steps:
     - isDrop: 1
-      stepText: abeja
+      stepText: globo
     - isDrop: 0
       stepText: 1
     - isDrop: 1
@@ -24157,7 +24167,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4366152189619142571}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7977528329428293606}
+        m_TargetAssemblyTypeName: MissionPanelValidator, Assembly-CSharp
+        m_MethodName: ValidateMission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5165687250452755203}
+        m_TargetAssemblyTypeName: MissionSelectUI, Assembly-CSharp
+        m_MethodName: RefreshUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5165687250452755202}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: RefreshInventoryUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1795660591504024349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24732,7 +24778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0.78867924, b: 0.059945807, a: 0.5686275}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25144,6 +25190,7 @@ MonoBehaviour:
   missionStepsContainer: {fileID: 286418103637972888}
   textStepPrefab: {fileID: 4963002234356882495, guid: e260b6fcafd40144caeaa2d51e0826db, type: 3}
   dropTextStepPrefab: {fileID: 7675350441528043541, guid: 1d27abf5541c43e46b05af3fe33e6461, type: 3}
+  missionPanelBackground: {fileID: 4010189532665451765}
 --- !u!224 &5211338107274400007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25161,7 +25208,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.00030096}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5220250834102161666
 CanvasRenderer:
@@ -25587,7 +25634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &6682183629075117532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25693,7 +25740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7420992727354424929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25831,6 +25878,7 @@ GameObject:
   - component: {fileID: 2328643343269004852}
   - component: {fileID: 4010189532665451765}
   - component: {fileID: 3796803005737117663}
+  - component: {fileID: 7977528329428293606}
   m_Layer: 5
   m_Name: PanelSockets
   m_TagString: Untagged
@@ -25838,6 +25886,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7977528329428293606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977528329428293605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644a8e11a5225fd45b7ecec7a9d8e20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validationMessageText: {fileID: 4535703169973513627}
+  missionNameText: {fileID: 8774909650574710484}
 --- !u!224 &8006615808386483668
 RectTransform:
   m_ObjectHideFlags: 0

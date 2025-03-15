@@ -13,9 +13,13 @@ public class MissionSelectUI : MonoBehaviour
     public TMP_Text missionDescriptionText;   // Descripción de la misión (TMP_Text)
     public Transform missionStepsContainer;   // Contenedor donde se instancian los pasos
     public GameObject textStepPrefab;         // Prefab para un paso de misión "solo texto" (Legacy Text)
-    public GameObject dropTextStepPrefab;       // Prefab para un paso de misión "drop+texto" (Legacy Text)
+    public GameObject dropTextStepPrefab;     // Prefab para un paso de misión "drop+texto" (Legacy Text)
+    public Image missionPanelBackground;      // Fondo del panel de misión
 
     private List<MissionData> missions;
+
+    private Color completedColor = new Color(0f, 0.792f, 0.063f, 1f);  // #00CA10
+    private Color notCompletedColor = new Color(1f, 0f, 0f, 1f);       // #FF0000
 
     private void Start()
     {
@@ -27,16 +31,18 @@ public class MissionSelectUI : MonoBehaviour
         missionDropdown.onValueChanged.AddListener(OnMissionSelected);
     }
 
-    // Llena el Dropdown con los nombres de las misiones
+    // Llena el Dropdown con los nombres de las misiones y cambia el color de las completadas
     private void PopulateDropdown()
     {
         missionDropdown.ClearOptions();
-        List<string> options = new List<string>();
+        List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
 
-        foreach (var mission in missions)
+        for (int i = 0; i < missions.Count; i++)
         {
-            options.Add(mission.missionName);
+            TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData(missions[i].missionName);
+            options.Add(option);
         }
+
         missionDropdown.AddOptions(options);
 
         // Si hay misiones, mostrar la primera por defecto
@@ -44,6 +50,8 @@ public class MissionSelectUI : MonoBehaviour
         {
             OnMissionSelected(0);
         }
+
+        UpdateDropdownColors();
     }
 
     // Se llama cada vez que se selecciona una misión en el Dropdown
@@ -60,6 +68,9 @@ public class MissionSelectUI : MonoBehaviour
         // Actualizar los textos del panel de detalle (TMP_Text)
         missionNameText.text = selectedMission.missionName;
         missionDescriptionText.text = selectedMission.description;
+
+        // Cambiar color del panel según el estado de la misión
+        missionPanelBackground.color = selectedMission.completada ? completedColor : notCompletedColor;
 
         // Limpiar el contenedor de pasos
         foreach (Transform child in missionStepsContainer)
@@ -80,5 +91,29 @@ public class MissionSelectUI : MonoBehaviour
                 stepText.text = step.stepText;
             }
         }
+
+        // Actualizar colores del Dropdown
+        UpdateDropdownColors();
+    }
+
+    // Cambia el color del texto en el Dropdown si la misión está completada
+    private void UpdateDropdownColors()
+    {
+        for (int i = 0; i < missionDropdown.options.Count; i++)
+        {
+            string colorTag = missions[i].completada ? "<color=#00CA10>" : "<color=#FF0000>";
+            missionDropdown.options[i].text = colorTag + missions[i].missionName + "</color>";
+        }
+
+        // Refrescar visualmente el Dropdown
+        missionDropdown.RefreshShownValue();
+    }
+
+    // Método público para refrescar la UI (se puede llamar desde un botón)
+    public void RefreshUI()
+    {
+        int currentIndex = missionDropdown.value;
+        OnMissionSelected(currentIndex);
+        UpdateDropdownColors();
     }
 }

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
     public Transform contentPanel; // 📌 Panel donde van los ítems en la UI
-    public GameObject itemPrefab; // 📌 Prefab del ítem a instanciar
+    public GameObject itemPrefab;  // 📌 Prefab del ítem a instanciar
 
     private void Start()
     {
@@ -42,27 +43,27 @@ public class InventoryUI : MonoBehaviour
                 itemConfig.tiempoCarnada = itemData.tiempoCarnada;
                 itemConfig.tipoRanaAtrae = itemData.tipoRanaAtrae;
                 itemConfig.porcentajeAumento = itemData.porcentajeAumento;
-                itemConfig.mostrar = itemData.mostrar; // 🔹 Asigna el valor real de `mostrar`
+                itemConfig.mostrar = itemData.mostrar; // 🔹 Asigna el valor real de 'mostrar'
 
                 // 🔄 Actualizar los datos visuales y de audio
                 itemConfig.UpdateItemVisuals();
 
-                // 🔥 Modificaciones según `mostrar`
+                // 🔥 Modificaciones según 'mostrar'
                 if (itemData.mostrar)
                 {
                     itemImage.color = Color.white; // Cambiar color a blanco
                     if (audioSource != null) audioSource.enabled = true; // Activar AudioSource
-                    if (dragAndDrop != null) dragAndDrop.enabled = true; // Activar DragAndDropUI
+                    if (dragAndDrop != null) dragAndDrop.enabled = true;   // Activar DragAndDropUI
                     if (itemButton != null) itemButton.gameObject.SetActive(true); // Activar botón
                 }
                 else
                 {
                     itemImage.color = Color.black; // Mantener color en negro
                     if (audioSource != null) audioSource.enabled = false; // Mantener AudioSource desactivado
-                    if (dragAndDrop != null) dragAndDrop.enabled = false; // Mantener DragAndDropUI desactivado
+                    if (dragAndDrop != null) dragAndDrop.enabled = false;   // Mantener DragAndDropUI desactivado
                     if (itemButton != null) itemButton.gameObject.SetActive(false); // Mantener botón desactivado
                 }
-                
+
                 Debug.Log($"✅ Ítem asignado en UI: {itemData.itemID}, Mostrar: {itemConfig.mostrar}");
             }
             else
@@ -70,5 +71,17 @@ public class InventoryUI : MonoBehaviour
                 Debug.LogError($"❌ No se encontró ItemConfig en el prefab de {itemData.itemID}");
             }
         }
+    }
+
+    // Método público para refrescar la UI de ítems (puedes asignarlo a un botón)
+    public void RefreshInventoryUI()
+    {
+        // Limpiar el contenedor
+        foreach (Transform child in contentPanel)
+        {
+            Destroy(child.gameObject);
+        }
+        // Volver a mostrar la lista de ítems
+        DisplayInventory();
     }
 }
