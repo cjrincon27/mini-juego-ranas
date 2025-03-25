@@ -48,6 +48,21 @@ public class MissionInventoryManager : MonoBehaviour
         return storedMissions;
     }
 
+    // Marca como completada la misión que coincide con el nombre
+    public void MarkMissionAsCompleted(string missionName)
+    {
+        foreach (MissionData mission in storedMissions)
+        {
+            if (mission.missionName.Equals(missionName))
+            {
+                mission.completada = true;
+                Debug.Log($"✅ Misión '{missionName}' marcada como completada.");
+                return;
+            }
+        }
+        Debug.LogWarning($"⚠ No se encontró la misión '{missionName}' en el inventario.");
+    }
+
     // Método opcional para imprimir todas las misiones en la consola
     public void PrintAllMissions()
     {
