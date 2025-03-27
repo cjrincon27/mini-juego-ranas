@@ -20559,61 +20559,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsData:
-  - itemID: rana1
+  - itemID: rana
     itemImage: {fileID: 21300000, guid: 43f0e7c2fe029cb4f8074f9b0db1dfa5, type: 3}
     itemAudio: {fileID: 8300000, guid: 2ca692446df42cb4986786c778e40d30, type: 3}
     tiempoCarnada: 1
     tipoRanaAtrae: 1
     porcentajeAumento: 1
     mostrar: 1
-  - itemID: globo
-    itemImage: {fileID: 21300000, guid: af0b5775ed82a5b4b8a9a8aa20f4a377, type: 3}
-    itemAudio: {fileID: 8300000, guid: ea18b8d99eaf7cc4abbbf73de638cde7, type: 3}
-    tiempoCarnada: 2
-    tipoRanaAtrae: 2
-    porcentajeAumento: 2
+  - itemID: tronco
+    itemImage: {fileID: 21300000, guid: bb73b43df1d6ea6478c2aae7a6476298, type: 3}
+    itemAudio: {fileID: 8300000, guid: 2ca692446df42cb4986786c778e40d30, type: 3}
+    tiempoCarnada: 1
+    tipoRanaAtrae: 1
+    porcentajeAumento: 1
     mostrar: 0
-  - itemID: caja
-    itemImage: {fileID: 21300000, guid: d219982fc119bcc4db97df18470391c6, type: 3}
-    itemAudio: {fileID: 8300000, guid: 8ae08b0f3698f9f4e9ea533475c8c0b4, type: 3}
-    tiempoCarnada: 3
-    tipoRanaAtrae: 3
-    porcentajeAumento: 3
+  - itemID: serrucho
+    itemImage: {fileID: 21300000, guid: 53ee16ca55a14d04da607b03485dc6b1, type: 3}
+    itemAudio: {fileID: 8300000, guid: 2ca692446df42cb4986786c778e40d30, type: 3}
+    tiempoCarnada: 1
+    tipoRanaAtrae: 1
+    porcentajeAumento: 1
     mostrar: 0
-  - itemID: vaso
-    itemImage: {fileID: 21300000, guid: 62b41e17d501e384d88cf4081733ab53, type: 3}
-    itemAudio: {fileID: 8300000, guid: ee101cee1f05cc141a9c50ead8df8b75, type: 3}
-    tiempoCarnada: 4
-    tipoRanaAtrae: 4
-    porcentajeAumento: 4
+  - itemID: tablas
+    itemImage: {fileID: 21300000, guid: d9214da749d1a7f469ac878fe4615bf4, type: 3}
+    itemAudio: {fileID: 8300000, guid: 2ca692446df42cb4986786c778e40d30, type: 3}
+    tiempoCarnada: 1
+    tipoRanaAtrae: 1
+    porcentajeAumento: 1
     mostrar: 0
-  - itemID: vaso1
-    itemImage: {fileID: 21300000, guid: 62b41e17d501e384d88cf4081733ab53, type: 3}
-    itemAudio: {fileID: 8300000, guid: ee101cee1f05cc141a9c50ead8df8b75, type: 3}
-    tiempoCarnada: 4
-    tipoRanaAtrae: 4
-    porcentajeAumento: 4
-    mostrar: 0
-  - itemID: Mesa
-    itemImage: {fileID: 21300000, guid: 62b41e17d501e384d88cf4081733ab53, type: 3}
-    itemAudio: {fileID: 8300000, guid: 4f7cf1cb46621524a91c1871092bdebd, type: 3}
-    tiempoCarnada: 4
-    tipoRanaAtrae: 4
-    porcentajeAumento: 4
-    mostrar: 0
-  - itemID: vaso2
-    itemImage: {fileID: 21300000, guid: 62b41e17d501e384d88cf4081733ab53, type: 3}
-    itemAudio: {fileID: 8300000, guid: ee101cee1f05cc141a9c50ead8df8b75, type: 3}
-    tiempoCarnada: 4
-    tipoRanaAtrae: 4
-    porcentajeAumento: 4
-    mostrar: 0
-  - itemID: vaso2
-    itemImage: {fileID: 21300000, guid: 62b41e17d501e384d88cf4081733ab53, type: 3}
-    itemAudio: {fileID: 8300000, guid: ee101cee1f05cc141a9c50ead8df8b75, type: 3}
-    tiempoCarnada: 4
-    tipoRanaAtrae: 4
-    porcentajeAumento: 4
+  - itemID: cajon
+    itemImage: {fileID: 21300000, guid: cafe3bdc7dfdce444b7c6b157adc91a5, type: 3}
+    itemAudio: {fileID: 8300000, guid: 2ca692446df42cb4986786c778e40d30, type: 3}
+    tiempoCarnada: 1
+    tipoRanaAtrae: 1
+    porcentajeAumento: 1
     mostrar: 0
 --- !u!224 &1850997786 stripped
 RectTransform:
@@ -20650,76 +20629,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missions:
-  - missionName: mision1
-    description: ranas  verdes
+  - missionName: Las Ranas del estanque
+    description: sacaremos todas las ranas de l piscina
     completada: 0
     steps:
     - isDrop: 0
       stepText: Cazar una
     - isDrop: 1
       stepText: rana
-    - isDrop: 0
-      stepText: verde
-  - missionName: mision2
-    description: ranas  rojas
+  - missionName: haremos un cajon
+    description: clavaremos y harmos un bello cajon
     completada: 0
     steps:
-    - isDrop: 1
-      stepText: abeja
     - isDrop: 0
-      stepText: 1
+      stepText: armar un
     - isDrop: 1
-      stepText: rana
+      stepText: cajon
     - isDrop: 0
-      stepText: roja
-  - missionName: mision3
-    description: ranas  rojas
+      stepText: 'con '
+    - isDrop: 1
+      stepText: tablas
+    - isDrop: 1
+      stepText: clavos
+    - isDrop: 1
+      stepText: martillo
+  - missionName: las ranas zaules
+    description: las ranas azule al cajon
     completada: 0
     steps:
-    - isDrop: 1
-      stepText: abeja
     - isDrop: 0
-      stepText: 1
-    - isDrop: 1
-      stepText: rana
+      stepText: poner
     - isDrop: 0
-      stepText: roja
-  - missionName: mision4
-    description: ranas  rojas
+      stepText: 8
+    - isDrop: 1
+      stepText: ranas
+    - isDrop: 1
+      stepText: azul
+    - isDrop: 0
+      stepText: en el
+    - isDrop: 1
+      stepText: cajon
+  - missionName: las ranas zaules
+    description: las ranas azule al cajon
     completada: 0
     steps:
-    - isDrop: 1
-      stepText: abeja
     - isDrop: 0
-      stepText: 1
-    - isDrop: 1
-      stepText: rana
+      stepText: poner
     - isDrop: 0
-      stepText: roja
-  - missionName: mision5
-    description: ranas  rojas
-    completada: 0
-    steps:
+      stepText: 8
     - isDrop: 1
-      stepText: abeja
-    - isDrop: 0
-      stepText: 1
+      stepText: ranas
     - isDrop: 1
-      stepText: rana
+      stepText: azul
     - isDrop: 0
-      stepText: roja
-  - missionName: mision6
-    description: ranas  rojas
-    completada: 0
-    steps:
+      stepText: en el
     - isDrop: 1
-      stepText: abeja
-    - isDrop: 0
-      stepText: 1
-    - isDrop: 1
-      stepText: rana
-    - isDrop: 0
-      stepText: roja
+      stepText: cajon
 --- !u!4 &1855433840
 Transform:
   m_ObjectHideFlags: 0
