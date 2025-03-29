@@ -6748,7 +6748,19 @@ MonoBehaviour:
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5165687250452755202}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: RefreshInventoryUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &530969198
 MonoBehaviour:
@@ -6807,8 +6819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.68869, y: 134.86116}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 162.84, y: 134.86116}
+  m_SizeDelta: {x: 225.68, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &535462696
 PrefabInstance:
@@ -6821,6 +6833,10 @@ PrefabInstance:
     - target: {fileID: 947698660051869581, guid: c513d74c9f7665842b41159486a63722, type: 3}
       propertyPath: m_Name
       value: item
+      objectReference: {fileID: 0}
+    - target: {fileID: 947698660051869581, guid: c513d74c9f7665842b41159486a63722, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2618295067868654538, guid: c513d74c9f7665842b41159486a63722, type: 3}
       propertyPath: m_Pivot.x
@@ -6892,11 +6908,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618295067868654538, guid: c513d74c9f7665842b41159486a63722, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -315
+      value: -204
       objectReference: {fileID: 0}
     - target: {fileID: 2618295067868654538, guid: c513d74c9f7665842b41159486a63722, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 129
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 2618295067868654538, guid: c513d74c9f7665842b41159486a63722, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15113,7 +15129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
+  m_AnchoredPosition: {x: -7.5000153, y: -0.5}
   m_SizeDelta: {x: -35, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1388626237
@@ -20644,7 +20660,7 @@ MonoBehaviour:
     - isDrop: 0
       stepText: armar un
     - isDrop: 1
-      stepText: cajon
+      stepText: rana
     - isDrop: 0
       stepText: 'con '
     - isDrop: 1
@@ -23921,7 +23937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23948,8 +23964,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -23986,7 +24002,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -109.81709, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -24296,7 +24312,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4366152189619142571}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7977528329428293606}
+        m_TargetAssemblyTypeName: MissionPanelValidator, Assembly-CSharp
+        m_MethodName: ValidateMission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5165687250452755203}
+        m_TargetAssemblyTypeName: MissionSelectUI, Assembly-CSharp
+        m_MethodName: RefreshUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5165687250452755202}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: RefreshInventoryUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1795660591504024349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25037,7 +25089,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25064,8 +25116,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25283,7 +25335,7 @@ MonoBehaviour:
   missionStepsContainer: {fileID: 286418103637972888}
   textStepPrefab: {fileID: 4963002234356882495, guid: e260b6fcafd40144caeaa2d51e0826db, type: 3}
   dropTextStepPrefab: {fileID: 7675350441528043541, guid: 1d27abf5541c43e46b05af3fe33e6461, type: 3}
-  missionPanelBackground: {fileID: 0}
+  missionPanelBackground: {fileID: 4010189532665451765}
 --- !u!224 &5211338107274400007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25301,7 +25353,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.00030096}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5220250834102161666
 CanvasRenderer:
@@ -25727,7 +25779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &6682183629075117532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25971,6 +26023,7 @@ GameObject:
   - component: {fileID: 2328643343269004852}
   - component: {fileID: 4010189532665451765}
   - component: {fileID: 3796803005737117663}
+  - component: {fileID: 7977528329428293606}
   m_Layer: 5
   m_Name: PanelSockets
   m_TagString: Untagged
@@ -25978,6 +26031,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7977528329428293606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977528329428293605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644a8e11a5225fd45b7ecec7a9d8e20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validationMessageText: {fileID: 4535703169973513627}
+  missionNameText: {fileID: 8774909650574710484}
 --- !u!224 &8006615808386483668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26226,8 +26293,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
