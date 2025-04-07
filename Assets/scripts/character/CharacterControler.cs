@@ -3,17 +3,21 @@ using UnityEngine.AI;
 
 public class CharacterClickMove : MonoBehaviour
 {
-    public Camera mainCamera;        // C醡ara principal
-    public LayerMask groundLayer;    // Capa del suelo
-    public float rotationSpeed = 5f; // Velocidad de giro
+    public Camera mainCamera;
+    public LayerMask groundLayer;
+    public float rotationSpeed = 5f;
+    public float holdThreshold = 0.15f; // Tiempo m铆nimo para considerar el clic como "sostenido"
 
     private NavMeshAgent agent;
-    private Animator animator; // Referencia al Animator
+    private Animator animator;
+
+    private bool isHoldingClick = false;
+    private float clickStartTime;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>(); // Obtiene el Animator
+        animator = GetComponent<Animator>();
 
         if (mainCamera == null)
         {
@@ -23,29 +27,45 @@ public class CharacterClickMove : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Detecta clic izquierdo
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            clickStartTime = Time.time;
+            isHoldingClick = true;
+        }
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+        if (Input.GetMouseButtonUp(0))
+        {
+            isHoldingClick = false;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            float heldTime = Time.time - clickStartTime;
+
+            if (heldTime >= holdThreshold)
             {
-                agent.SetDestination(hit.point);
-                animator.SetFloat("mov-x", 1f); // Activa la animaci髇 de caminar
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+                {
+                    agent.SetDestination(hit.point);
+                    animator.SetFloat("mov-x", 1f); // Activar animaci贸n
+                }
             }
         }
 
-        // Rotar el personaje en la direcci髇 del movimiento
+        // Rotaci贸n hacia la direcci贸n del movimiento
         if (agent.velocity.magnitude > 0.1f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(agent.velocity.normalized);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
 
-        // Si el personaje se ha detenido, poner animaci髇 en 0
+        // Detener animaci贸n si el personaje ha llegado
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            animator.SetFloat("mov-x", 0f); // Detiene la animaci髇
+            animator.SetFloat("mov-x", 0f); // Detener animaci贸n
         }
     }
 }

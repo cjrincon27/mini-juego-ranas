@@ -8,6 +8,7 @@ public class ObjetoInteractuable : MonoBehaviour
     public AudioClip audioNombre;
     public AudioClip audioColor;
     public Color colorResplandor = Color.yellow;
+    public Sprite imagenObjeto; // Campo nuevo para la imagen (Sprite)
     public float outlineWidth = 5f;
 
     private Outline outline;
@@ -22,14 +23,14 @@ public class ObjetoInteractuable : MonoBehaviour
         outline.OutlineWidth = outlineWidth;
         outline.enabled = false;
 
-        // Asegurar que el collider esté habilitado
+        // Asegurar que el collider estï¿½ habilitado
         objetoCollider = GetComponent<Collider>();
         objetoCollider.enabled = true;
     }
 
     private void OnMouseEnter()
     {
-        // Activar el resplandor al pasar el ratón
+        // Activar el resplandor al pasar el ratï¿½n
         outline.enabled = true;
         Cursor.SetCursor(CursorManager.instance.cursorInteractivo, Vector2.zero, CursorMode.Auto);
     }
@@ -43,7 +44,7 @@ public class ObjetoInteractuable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Mostrar el panel con la información del objeto
-        UIManager.instance.MostrarPanel(nombreObjeto, colorObjeto, audioNombre, audioColor);
+        // Mostrar el panel con la informaciï¿½n del objeto
+        UIManager.instance.MostrarPanel(nombreObjeto, colorObjeto, audioNombre, audioColor, imagenObjeto);
     }
 }

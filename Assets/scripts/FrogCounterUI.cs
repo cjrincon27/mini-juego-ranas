@@ -73,7 +73,7 @@ public class FrogCounterUI : MonoBehaviour
     {
         if (counter.counterText != null)
         {
-            counter.counterText.text = $"{counter.frogTypeName}: {counter.count}";
+            counter.counterText.text = $"{counter.count}";
         }
     }
 

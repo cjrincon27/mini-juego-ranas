@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     public Button botonGuardar;
     public Button botonAudioNombre;
     public Button botonAudioColor;
+    public Image imagenObjetoUI;
+    public Vector2 posicionFinal = new Vector2(-200, 200);
 
     private AudioSource audioSource;
     private AudioClip clipNombre;
@@ -29,7 +31,7 @@ public class UIManager : MonoBehaviour
         canvasRectTransform = GetComponent<RectTransform>();
     }
 
-    public void MostrarPanel(string nombre, string color, AudioClip audioNombre, AudioClip audioColor)
+    public void MostrarPanel(string nombre, string color, AudioClip audioNombre, AudioClip audioColor, Sprite imagen = null)
     {
         Vector2 mousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -64,6 +66,16 @@ public class UIManager : MonoBehaviour
         panelInfo.SetActive(true);
         textoNombre.text = nombre;
         textoColor.text = color;
+
+        if(imagen != null)
+        {
+            imagenObjetoUI.sprite = imagen;
+            imagenObjetoUI.gameObject.SetActive(true);
+        }
+        else
+        {
+            imagenObjetoUI.gameObject.SetActive(false);
+        }
 
         clipNombre = audioNombre;
         clipColor = audioColor;
@@ -110,7 +122,18 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogWarning($"No se encontró el ítem con id: {nombre}");
         }
-        
+        if (imagenObjetoUI.sprite != null)
+        {
+            LeanTween.scale(imagenObjetoUI.rectTransform, Vector3.one * 0.5f, 0.5f) // Escala a la mitad
+                .setEase(LeanTweenType.easeInOutQuad);
+
+            LeanTween.move(imagenObjetoUI.rectTransform, posicionFinal, 1f) // Mueve a las coordenadas
+                .setEase(LeanTweenType.easeInOutQuad)
+                .setOnComplete(() => {
+                    imagenObjetoUI.gameObject.SetActive(false); // Oculta al finalizar
+                    imagenObjetoUI.rectTransform.localScale = Vector3.one; // Restablece escala
+                });
+        }
         // Reproducir el audio correspondiente
         ReproducirAudio(clipNombre);
     }
