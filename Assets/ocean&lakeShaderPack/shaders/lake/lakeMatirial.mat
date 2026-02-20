@@ -104,7 +104,7 @@ Material:
     - _ZWrite: 1
     - _depth_fade: 2.74
     - _foam_depth: 10.45
-    - _foam_distance: 0.24
+    - _foam_distance: 0.12
     - _foam_power: 1
     - _foam_scale: 10
     - _foam_speed: 0.001
@@ -114,11 +114,11 @@ Material:
     - _normal_tile: 1
     - _oclussion_strength: 1
     - _offset: 1
-    - _refraction_scale: 0.3
-    - _refraction_speed: 0.001
-    - _refraction_strength: 0.25
-    - _smoothness: 10
-    - _water_depth: 10
+    - _refraction_scale: 1
+    - _refraction_speed: 0.01
+    - _refraction_strength: 17.16
+    - _smoothness: 8.95
+    - _water_depth: -12
     - _waveBumps_spees: 0.7
     - _waveColor_speed: 4
     - _wave_scale: 3
@@ -129,11 +129,11 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Vector2: {r: 1.4, g: 0.3, b: 0, a: 0}
-    - _deep_color: {r: 0.3005677, g: 0.8113208, b: 0.2793699, a: 0.13725491}
+    - _deep_color: {r: 1, g: 1, b: 1, a: 0.13725491}
     - _foam_color: {r: 0.75027376, g: 1, b: 0.627451, a: 0}
     - _foam_color2: {r: 0, g: 0, b: 0, a: 0}
     - _normal_strength: {r: -0.4, g: 0, b: 0, a: 0}
-    - _shallow_color: {r: 0, g: 0.14475718, b: 0.2264151, a: 0.05882353}
+    - _shallow_color: {r: 0, g: 0, b: 0, a: 0.05882353}
     - _waterColor1: {r: 0.4323603, g: 0.6507429, b: 0.6603774, a: 0}
     - _waterColor2: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

@@ -104,13 +104,13 @@ Material:
     - _ZWrite: 1
     - _depth_fade: 2.74
     - _foam_depth: 10.45
-    - _foam_distance: 0.7
+    - _foam_distance: 3.12
     - _foam_power: 1
-    - _foam_scale: 8.79
+    - _foam_scale: 1.88
     - _foam_speed: 0.01
     - _foam_strength: 0
     - _fresnel_power: 1.12
-    - _normal_speed: 1
+    - _normal_speed: 0.59
     - _normal_tile: 1
     - _oclussion_strength: 1
     - _offset: 1
@@ -118,21 +118,21 @@ Material:
     - _waveBumps_speed: 1
     - _waveBumps_spees: 0.7
     - _waveColor_speed: 4
-    - _wave_scale: 16
-    - _wave_speed: 2
-    - _wave_strength: 5
-    - _wave_tile: 1.7
+    - _wave_scale: 8.18
+    - _wave_speed: 0
+    - _wave_strength: 0.21
+    - _wave_tile: -12.47
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Vector2: {r: 1.4, g: 0.3, b: 0, a: 0}
     - _deep_color: {r: 0, g: 0.8839288, b: 1, a: 1}
-    - _foam_color: {r: 1, g: 1, b: 1, a: 0}
-    - _foam_color2: {r: 0, g: 0, b: 0, a: 0}
+    - _foam_color: {r: 0.028034883, g: 0.3962264, b: 0.028034883, a: 1}
+    - _foam_color2: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
     - _normal_strength: {r: -0.4, g: 0, b: 0, a: 0}
     - _shallow_color: {r: 0, g: 0, b: 0, a: 0}
-    - _waterColor1: {r: 0.25698105, g: 0.6707559, b: 0.85660374, a: 0}
-    - _waterColor2: {r: 0, g: 0.4442654, b: 0.6377357, a: 0}
+    - _waterColor1: {r: 0.24528301, g: 0, b: 0.12514947, a: 0}
+    - _waterColor2: {r: 0.4492437, g: 0.5377358, b: 0.012682447, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7403962904411355469
